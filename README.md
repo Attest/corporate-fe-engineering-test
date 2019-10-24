@@ -8,6 +8,8 @@ This is a frontend engineering test using Vue.
 For our Careers page we asked different departments within Attest questions to get to know them.
 Do they prefer coffee or tea, dogs or cats, and things like that.
 
+You can find the data for this in ./src/questions.ts
+
 For this test implement a one page application that shows off this information,
 and allows the user to interact with it.
 
