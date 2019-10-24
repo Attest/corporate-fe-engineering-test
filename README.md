@@ -21,7 +21,7 @@ Here is a screenshot of an example solution:
 
 ![example solution](./example-solution.png)
 
-This project includes an example template project to get started. If you wish you are free to use different 
+This project includes an example template project to get started using the Vue CLI. If you wish you are free to use different tooling.
 
  * You are free to change how it looks.
  * You are free to change how it works.
