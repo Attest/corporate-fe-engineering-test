@@ -1,0 +1,22 @@
+{
+  "name": "eng-test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel serve ./src/index.html"
+  },
+  "devDependencies": {
+    "@vue/component-compiler-utils": "^3.0.0",
+    "autoprefixer": "^9.6.5",
+    "parcel": "^1.12.4",
+    "parcel-bundler": "^1.12.4",
+    "postcss-nested": "^4.1.2",
+    "typescript": "^3.6.4",
+    "vue-template-compiler": "^2.6.10",
+    "vue-hot-reload-api": "^2.3.4"
+  },
+  "dependencies": {
+    "vue": "^2.6.10"
+  }
+}
