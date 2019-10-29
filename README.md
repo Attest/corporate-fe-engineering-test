@@ -33,5 +33,5 @@ Please also include some tests.
 
 Attest has a style guide which is used across our products. You are not required to use it.
 
-However if you wish to you can find it [here](https://attest.invisionapp.com/dsm/attest-technologies-ltd/adsl-v-2).
+However if you wish to you can find it [here](https://attest.invisionapp.com/dsm/attest-technologies-ltd/adsl).
 
