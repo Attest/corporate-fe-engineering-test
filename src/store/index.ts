@@ -2,16 +2,20 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import Data from '../questions'
 import NavigationItem from "@/models/navigation/item";
+import Question from "@/models/questions/questions";
 import Department, {DepartmentMap} from "@/models/department/department";
 
 Vue.use(Vuex)
 
-const navigationItems: NavigationItem[] = []
 const currentDepartment: DepartmentMap = {}
+let navigationItems: NavigationItem[] = []
+let questions: Question[] = []
+
 export default new Vuex.Store({
   state: {
     navigationItems,
-    currentDepartment
+    currentDepartment,
+    questions,
   },
   mutations: {
     setNavigationItems(state, data) {
@@ -19,10 +23,13 @@ export default new Vuex.Store({
     },
     setDepartmentData(state, data) {
       state.currentDepartment = data
+    },
+    setQuestionData(state, data) {
+      state.questions = data
     }
   },
   actions: {
-    loadNavigation({ commit }) {
+    loadNavigation({ commit }): void {
       let departments: DepartmentMap = Data.departments
       const navItems = Object.keys(departments).map((deptName: keyof DepartmentMap) => new NavigationItem({
         text: departments[deptName].name.toString(),
@@ -31,7 +38,7 @@ export default new Vuex.Store({
       commit('setNavigationItems', navItems)
     },
 
-    loadDepartmentData({ commit }, department: keyof DepartmentMap) {
+    loadDepartmentData({ commit, dispatch }, department: keyof DepartmentMap) {
       let departments: DepartmentMap = Data.departments
       let deptData: Department = departments[department]
       if (deptData) {
@@ -39,6 +46,11 @@ export default new Vuex.Store({
       } else {
         throw Error('No suc department')
       }
+    },
+
+    loadQuestionData({state, commit}) {
+      const questions = Data.questions.map(question => new Question(question))
+      commit('setQuestionData', questions)
     }
   },
   getters: {
@@ -47,6 +59,9 @@ export default new Vuex.Store({
     },
     departmentData(state) {
       return state.currentDepartment
+    },
+    questionsData(state){
+      return state.questions
     }
   },
   modules: {

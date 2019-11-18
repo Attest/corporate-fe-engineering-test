@@ -1,14 +1,17 @@
 <template>
   <section class="container">
-    Hello World
+    <h1>{{data.name}}</h1>
+    <survey-results v-if="data.responses" :responses="data.responses"></survey-results>
   </section>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-
+import ProgressBar from './ProgressBar.vue'
+import SurveyResults from './SurveyResults.vue'
 export default Vue.extend({
   name: 'results-page',
+  components: {SurveyResults},
   props: {
     data: Object,
   },
@@ -17,6 +20,5 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
   .container {
-    display: flex;
     background-color: #ffffff;}
 </style>

@@ -8,7 +8,7 @@
 <script lang="ts">
   import Vue from 'vue'
   import Page from './components/Page.vue'
-  import Navigation from '@/components/Navigation.vue'
+  import Navigation from './components/Navigation.vue'
   import NavigationItem from './models/navigation/item';
   import {mapGetters} from "vuex";
 
@@ -35,6 +35,7 @@
 </script>
 
 <style lang="scss">
+  @import "styles/variables.scss";
   #app {
     padding: 5rem;
     display: flex;

@@ -1,3 +1,5 @@
+import SurveyResponse from "@/models/surveys/responses";
+
 export default class Department {
     name: String
     responses: ISurveyResponse[]
@@ -16,6 +18,6 @@ interface IDepartment {
     responses: ISurveyResponse[]
 }
 
-interface ISurveyResponse {
+export interface ISurveyResponse {
     [x: string]: any
 }

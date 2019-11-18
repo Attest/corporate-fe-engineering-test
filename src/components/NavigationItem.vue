@@ -21,9 +21,10 @@
 </script>
 
 <style lang="scss">
+  @import "../styles/variables.scss";
   .navigation-item {
     &:hover {
-      background-color: #bccbd6;
+      background-color: $silver;
     }
   }
 
