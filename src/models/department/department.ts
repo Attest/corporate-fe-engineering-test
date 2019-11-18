@@ -1,13 +1,21 @@
 export default class Department {
     name: String
-    answers: SurveyResponse[]
+    responses: ISurveyResponse[]
     constructor(data: IDepartment) {
         this.name = data.name
-        this.answers = data.answers
+        this.responses = data.responses
     }
+}
+
+export interface DepartmentMap {
+    [key: string]: Department
 }
 
 interface IDepartment {
     name: String
-    answers: SurveyResponse[]
+    responses: ISurveyResponse[]
+}
+
+interface ISurveyResponse {
+    [x: string]: any
 }

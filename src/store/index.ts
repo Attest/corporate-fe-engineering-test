@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import Data from '../questions'
 import NavigationItem from "@/models/navigation/item";
+import {DepartmentMap} from "@/models/department/department";
 
 Vue.use(Vuex)
 
@@ -21,10 +22,11 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    loadNavigation({ state, commit }) {
-      const navItems = Object.values(Data.departments).map((dept, i) => new NavigationItem({
-        text: dept.name,
-        link: Object.keys(Data.departments)[i]
+    loadNavigation({ commit }) {
+      let departments: DepartmentMap = Data.departments
+      const navItems = Object.keys(departments).map((deptName: keyof DepartmentMap) => new NavigationItem({
+        text: departments[deptName].name.toString(),
+        link: deptName.toString()
       }))
       commit('setNavigationItems', navItems)
     },
