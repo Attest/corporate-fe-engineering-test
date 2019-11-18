@@ -2,16 +2,16 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import Data from '../questions'
 import NavigationItem from "@/models/navigation/item";
-import {DepartmentMap} from "@/models/department/department";
+import Department, {DepartmentMap} from "@/models/department/department";
 
 Vue.use(Vuex)
 
 const navigationItems: NavigationItem[] = []
-
+const currentDepartment: DepartmentMap = {}
 export default new Vuex.Store({
   state: {
     navigationItems,
-    currentDepartment: {}
+    currentDepartment
   },
   mutations: {
     setNavigationItems(state, data) {
@@ -31,16 +31,14 @@ export default new Vuex.Store({
       commit('setNavigationItems', navItems)
     },
 
-    loadDepartmentData({ state, commit }, department) {
-      const index = Object.keys(Data.departments).indexOf(department)
-      let deptData
-      if (index > -1) {
-        deptData = Object.values(Data.departments)[index]
-      }
+    loadDepartmentData({ commit }, department: keyof DepartmentMap) {
+      let departments: DepartmentMap = Data.departments
+      let deptData: Department = departments[department]
       if (deptData) {
         commit('setDepartmentData', deptData)
+      } else {
+        throw Error('No suc department')
       }
-
     }
   },
   getters: {
