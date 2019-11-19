@@ -31,6 +31,10 @@
 		border-radius: 2.5px;
 		display: flex;
 		position: relative;
+
+		&:not(:last-child) {
+			margin-bottom: 1rem;
+		}
 	}
 	.fill {
 		padding: $space;
@@ -40,6 +44,7 @@
 		background-color: aliceblue;
 	}
 	.label {
+		white-space: nowrap;
 		&--right {
 			right: 0;
 			position: absolute;

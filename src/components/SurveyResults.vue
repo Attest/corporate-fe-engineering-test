@@ -38,3 +38,9 @@
     }
   })
 </script>
+
+<style>
+    .results {
+        padding: 1rem;
+    }
+</style>
