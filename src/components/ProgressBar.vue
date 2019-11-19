@@ -1,6 +1,6 @@
 <template>
 	<div class="progress-bar">
-		<div class="fill" :style="`width: ${fill}%`">
+		<div :class="['fill', {'fill--transparent': !fill}]" :style="`width: ${fill}%`">
 			<span class="label">{{label}}</span>
 			<span class="label label--right">{{`${fill}%`}}</span>
 		</div>
@@ -42,6 +42,10 @@
 		justify-content: space-between;
 		align-items: center;
 		background-color: aliceblue;
+
+		&--transparent {
+			background-color: transparent;
+		}
 	}
 	.label {
 		white-space: nowrap;
