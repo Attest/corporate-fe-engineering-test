@@ -9,7 +9,6 @@
   import Vue from 'vue'
   import Page from './components/Page.vue'
   import Navigation from './components/Navigation.vue'
-  import NavigationItem from './models/navigation/item';
   import {mapGetters} from "vuex";
 
   export default Vue.extend({

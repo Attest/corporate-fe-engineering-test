@@ -7,7 +7,7 @@ import Department, {DepartmentMap} from "@/models/department/department";
 
 Vue.use(Vuex)
 
-const currentDepartment: DepartmentMap = {}
+let currentDepartment: DepartmentMap = {}
 let navigationItems: NavigationItem[] = []
 let questions: Question[] = []
 
@@ -48,7 +48,7 @@ export default new Vuex.Store({
       }
     },
 
-    loadQuestionData({state, commit}) {
+    loadQuestionData({commit}) {
       const questions = Data.questions.map(question => new Question(question))
       commit('setQuestionData', questions)
     }
